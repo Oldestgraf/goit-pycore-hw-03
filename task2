@@ -1,0 +1,24 @@
+import random
+
+def get_numbers_ticket(min, max, quantity):
+    """Lottery randomiser"""
+
+
+    # Check correct input data
+    if quantity > min > 0 and quantity < max <= 1000:
+
+        # Create empty set
+        new_set = set()
+
+        # Fill the set
+        while len(new_set) < quantity:
+            new_set.add(random.randint(min, max))
+
+        # Sort the set and return
+        return sorted(new_set)
+
+    # Return message if input data was incorrect
+    return("Incorrect input data")
+
+lottery_numbers = get_numbers_ticket(1, 49, 6)
+print("Ваші лотерейні числа:", lottery_numbers)
