@@ -1,0 +1,22 @@
+import datetime
+
+def get_days_from_today(date_from_user):
+    """Return difference in days between input date and current date."""
+
+    # Receive current date
+    current_datetime = datetime.datetime.today()
+
+    try:
+        # Change input date format from 'str' to 'datetime'
+        user_date = datetime.datetime.strptime(date_from_user, "%Y-%m-%d")
+    except ValueError:
+        # Print message if input of date was incorrect
+        print("Incorrect input, let's try one more time!")
+    else:
+        # Calculate difference between dates
+        difference = current_datetime - user_date
+        # Return quantity of days
+        return difference.days
+    return None
+
+print(get_days_from_today("2022-02-24"))
